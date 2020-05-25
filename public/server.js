@@ -32,7 +32,6 @@ app.get("/api/notes", function (req, res) {
 // Index - WORKS
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
-    
 });
 
 
@@ -42,12 +41,10 @@ app.get("/", function (req, res) {
 var newNote = require("../db/db.json");
 // or..var newNote = req.body;
 app.post("/api/notes",function(req,res){
-    
     console.log("newNote" + newNote);
     newNote.title = newNote.title.push();
     newNote.text = newNote.text.push();
     db.push(newNote);
-
 });
 
 
@@ -57,9 +54,9 @@ app.post("/api/notes",function(req,res){
 //   to read all notes from the `db.json` file, remove the note with 
 //   the given `id` property, and then rewrite the notes to the `db.json` file.
 
-// app.delete("/api/notes/:id", function(req,res){
+app.delete("/api/notes/:id", (req,res) => {
 
-// )};
+)};
 
 
 // Start server to begin listening
