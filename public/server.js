@@ -21,7 +21,8 @@ app.get("/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "notes.html"));
 });
 
-// GET /api/notes - Read the db.jsonfile and return all saved notes as JSON - WORKS
+// GET /api/notes - WORKS
+// Read the db.jsonfile and return all saved notes as JSON
 app.get("/api/notes", function (req, res) {
     console.log("response" + res.json(db));
     return res.json(db);
@@ -38,11 +39,13 @@ app.get("/", function (req, res) {
 // * POST / api / notes - Should recieve a new note to save on the request body, 
 // add it to the db.json file, and then return the new note to the client.
 
+var newNote = require("../db/db.json");
+// or..var newNote = req.body;
 app.post("/api/notes",function(req,res){
-    var newNote = req.body;
+    
     console.log("newNote" + newNote);
-
-    newNote.title = newNote.text.replace();
+    newNote.title = newNote.title.push();
+    newNote.text = newNote.text.push();
     db.push(newNote);
 
 });
@@ -54,16 +57,9 @@ app.post("/api/notes",function(req,res){
 //   to read all notes from the `db.json` file, remove the note with 
 //   the given `id` property, and then rewrite the notes to the `db.json` file.
 
-app.delete("/api/notes/:id", function(req,res){
+// app.delete("/api/notes/:id", function(req,res){
 
-
-}
-
-
-)
-
-
-
+// )};
 
 
 // Start server to begin listening
